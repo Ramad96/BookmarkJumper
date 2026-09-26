@@ -47,12 +47,17 @@ function render() {
   const fragment = document.createDocumentFragment();
   results.forEach((entry, i) => {
     const row = document.createElement('div');
-    row.className = 'result';
+    row.className = `result ${entry.url ? 'bookmark' : 'folder'}`;
     row.id = `result-${i}`;
     row.setAttribute('role', 'option');
     const icon = document.createElement('span');
     icon.className = 'item-icon';
-    icon.textContent = entry.url ? '↗' : '▱';
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', entry.url ? 'M6 3h12v18l-6-4-6 4V3Z' : 'M3 7V5h6l2 2h10v13H3V7Z');
+    svg.append(path);
+    icon.append(svg);
     icon.setAttribute('aria-hidden', 'true');
     const copy = document.createElement('div');
     copy.className = 'item-copy';
@@ -61,12 +66,13 @@ function render() {
     title.textContent = entry.title || entry.url || 'Untitled folder';
     const detail = document.createElement('div');
     detail.className = 'item-detail';
-    detail.textContent = entry.url ? `${entry.path ? entry.path + ' · ' : ''}${entry.url}` : `${entry.path ? entry.path + ' · ' : ''}${entry.children?.length ?? 0} items · Folder`;
+    detail.textContent = entry.url ? `Bookmark · ${entry.path ? entry.path + ' · ' : ''}${entry.url}` : `Folder · ${entry.children?.length ?? 0} items${entry.path ? ' · ' + entry.path : ''}`;
+    detail.title = detail.textContent;
     copy.append(title, detail);
     const action = document.createElement('span');
     action.className = 'item-action';
-    action.textContent = entry.url ? '↵' : '›';
-    action.setAttribute('aria-hidden', 'true');
+    action.textContent = entry.url ? 'Open now ↗' : 'Browse folder ›';
+    row.title = entry.url ? 'Open bookmark immediately in the current tab' : 'Browse this folder';
     row.append(icon, copy, action);
     row.addEventListener('click', () => { select(i); activate(); });
     fragment.append(row);
@@ -118,6 +124,7 @@ for (const scope of ['bar', 'all']) $(scope).addEventListener('click', () => {
 });
 
 async function init() {
+  $('version').textContent = `v${chrome.runtime.getManifest().version}`;
   search.focus();
   try {
     const [tree, tabs] = await Promise.all([chrome.bookmarks.getTree(), chrome.tabs.query({ active: true, currentWindow: true })]);
@@ -127,7 +134,11 @@ async function init() {
   } catch (error) { showError(error); }
   try {
     const commands = await chrome.commands.getAll();
-    $('shortcut').textContent = commands.find(command => command.name === '_execute_action')?.shortcut || 'Toolbar shortcut';
+    $('shortcut').textContent = commands.find(command => command.name === '_execute_action')?.shortcut || 'No shortcut assigned';
   } catch { /* Search remains available if the shortcut cannot be read. */ }
 }
+$('shortcut-settings').addEventListener('click', async () => {
+  try { await chrome.tabs.create({ url: 'chrome://extensions/shortcuts' }); }
+  catch (error) { showError(error); }
+});
 init();

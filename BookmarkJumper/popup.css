@@ -29,15 +29,23 @@ nav button { padding: 3px; border: 0; background: none; max-width: 200px; overfl
 .item-title, .item-detail { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .item-title { font-weight: 550; margin-bottom: 4px; }
 .item-detail { color: #72807a; font-size: 11px; }
-.item-action { color: #72807a; }
+.item-action { color: #476456; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.item-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+.folder .item-icon { color: #926016; background: #fff2cd; border-color: #e6d4a8; }
+.folder .item-icon svg { fill: #edbd5540; }
+.result-help { color: #65756d; font-size: 11px; line-height: 1.5; margin: 0 4px 10px; }
 #empty { text-align: center; color: #72807a; padding: 30px 10px; }
 #results:empty { height: 200px; }
 #error { color: #ad3939; padding: 10px; background: #fff0ee; border-radius: 8px; }
 footer { display: flex; justify-content: space-between; border-top: 1px solid #e4eae6; padding: 13px 22px; margin-top: 13px; color: #72807a; font-size: 11px; }
 kbd { display: inline-block; padding: 1px 4px; margin-right: 3px; border: 1px solid #d9e1dc; border-radius: 4px; font: inherit; }
-.product-credit { margin: 0; padding: 0 22px 14px; text-align: center; font-size: 11px; color: #65756d; }
-.product-credit a { color: #176047; text-underline-offset: 3px; }
-.product-credit a:focus-visible { outline: 2px solid #16745a; outline-offset: 3px; border-radius: 2px; }
+.product-info { padding: 0 22px 14px; font-size: 11px; color: #65756d; }
+.product-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.product-meta button { border: 0; background: none; padding: 3px 0; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.product-info summary { cursor: pointer; font-weight: 600; }
+.product-info p { line-height: 1.5; margin: 8px 0 0; }
+.product-info a { color: #176047; text-underline-offset: 3px; }
+.product-info a:focus-visible, summary:focus-visible { outline: 2px solid #16745a; outline-offset: 3px; border-radius: 2px; }
 [hidden] { display: none !important; }
 @media (prefers-color-scheme: dark) {
   :root { background: #17211d; color: #e5eee9; }
@@ -48,6 +56,7 @@ kbd { display: inline-block; padding: 1px 4px; margin-right: 3px; border: 1px so
   .result:hover { background: #24372b; }
   footer, kbd { border-color: #374d3e; }
   #error { background: #452926; color: #ffb4ab; }
-  .product-credit { color: #a0b4a7; }
-  .product-credit a { color: #a7dfbd; }
+  .product-info, .result-help { color: #a0b4a7; }
+  .product-info a { color: #a7dfbd; }
+  .folder .item-icon { color: #f2ca75; background: #3b3322; border-color: #6b5730; }
 }

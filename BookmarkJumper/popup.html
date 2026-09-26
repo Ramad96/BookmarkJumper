@@ -13,11 +13,19 @@
     <div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search bookmarks and folders…" aria-label="Search bookmarks and folders" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="results" autocomplete="off" autofocus></div>
     <div class="toolbar"><div class="modes" role="group" aria-label="Search scope"><button id="bar" aria-pressed="true">Bookmarks bar</button><button id="all" aria-pressed="false">All bookmarks</button></div><span id="count" aria-live="polite"></span></div>
     <nav id="breadcrumbs" aria-label="Folder path"></nav>
+    <p class="result-help">Folders let you browse. Bookmarks open immediately in your current tab.</p>
     <div id="results" role="listbox" aria-label="Bookmarks and folders"></div>
     <p id="empty" hidden>No matches. Try another title, folder, or URL.</p>
     <p id="error" role="alert" hidden></p>
   </main>
   <footer><span><kbd>↑</kbd><kbd>↓</kbd> select</span><span><kbd>↵</kbd> open</span><span><kbd>Alt</kbd><kbd>←</kbd> back</span><span><kbd>Esc</kbd> close</span></footer>
-  <p class="product-credit">BookmarkJumper is a product of <a href="https://amanahdigital.co.uk" target="_blank" rel="noopener noreferrer">AmanahDigital</a>.</p>
+  <section class="product-info" aria-label="Product information">
+    <div class="product-meta"><span id="version"></span><button id="shortcut-settings" type="button">Keyboard shortcut settings</button></div>
+    <details>
+      <summary>About us</summary>
+      <p>Bookmark Jumper helps you find saved bookmarks, explore folders, and jump to your next page without leaving your keyboard. Your bookmark search stays on your device.</p>
+      <p>Designed and deployed by <a href="https://amanahdigital.co.uk" target="_blank" rel="noopener noreferrer">AmanahDigital</a>.</p>
+    </details>
+  </section>
 </body>
 </html>
