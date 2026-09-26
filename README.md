@@ -29,7 +29,7 @@ To change the shortcut, open `chrome://extensions/shortcuts` and edit Bookmark J
 - Click a breadcrumb, press **Alt+←**, or press **Backspace** with an empty search field to go up a folder.
 - Press **Escape** to close the popup. Use **Tab** to reach the scope buttons and breadcrumbs.
 
-Bookmarks always open in the tab that was active when the popup opened. The About website link and shortcut-settings button open separate tabs. Each popup opening reads a fresh snapshot of your bookmarks; reopen it after editing bookmarks elsewhere.
+Bookmarks always open in the tab that was active when the popup opened. The shortcut-settings button opens a separate tab. Each popup opening reads a fresh snapshot of your bookmarks; reopen it after editing bookmarks elsewhere.
 
 Empty folders, no search results, and navigation failures are shown in the popup. JavaScript bookmarklets are not executed; use Chrome’s own bookmarks bar for those. Chrome may restrict navigation to certain special URLs, in which case the popup displays the error.
 

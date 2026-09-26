@@ -1,6 +1,6 @@
 {
   "name": "bookmark-jumper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "type": "module",
   "scripts": { "test": "node --test", "check": "node --check popup.js && node --check bookmarks.js && node --check scripts/bump-version.js", "bump": "node scripts/bump-version.js" }
