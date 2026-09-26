@@ -1,0 +1,53 @@
+:root { color-scheme: light dark; font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #202c29; background: #f8faf9; }
+* { box-sizing: border-box; }
+body { width: 560px; margin: 0; }
+header { display: flex; align-items: center; gap: 12px; padding: 23px 22px 20px; }
+.brand-icon { display: block; flex: 0 0 38px; width: 38px; height: 38px; object-fit: contain; }
+h1 { font-size: 17px; margin: 0 0 4px; letter-spacing: -.4px; }
+header p { margin: 0; color: #72807a; font-size: 12px; }
+.shortcut { margin-left: auto; color: #72807a; font-size: 11px; }
+main { padding: 0 16px; }
+.search-box { display: flex; align-items: center; gap: 10px; background: white; border: 1px solid #bdcfc6; border-radius: 11px; padding: 0 13px; box-shadow: 0 0 0 3px #16745a08; }
+.search-box:focus-within { border-color: #16745a; box-shadow: 0 0 0 3px #16745a16; }
+.search-box > span { font-size: 27px; color: #16745a; }
+input { width: 100%; height: 46px; border: 0; outline: 0; color: inherit; background: transparent; font: inherit; font-size: 14px; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; padding: 15px 0 12px; }
+.modes { display: flex; gap: 4px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.modes button { border: 0; border-radius: 6px; background: transparent; padding: 7px 10px; color: #6a7971; font-size: 12px; }
+.modes button[aria-pressed="true"] { background: #e3eee7; color: #176047; font-weight: 600; }
+button:focus-visible { outline: 2px solid #16745a; outline-offset: 2px; }
+#count { color: #72807a; font-size: 11px; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; padding: 0 4px 10px; color: #72807a; font-size: 11px; }
+nav button { padding: 3px; border: 0; background: none; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#results { height: 310px; overflow-y: auto; padding: 2px; }
+.result { display: flex; align-items: center; gap: 12px; padding: 11px 12px; margin-bottom: 3px; border: 1px solid transparent; border-radius: 9px; cursor: pointer; }
+.result:hover { background: #eef3ef; }
+.result[aria-selected="true"] { background: #e6f1eb; border-color: #cfdfd4; }
+.item-icon { display: grid; place-items: center; flex: 0 0 32px; height: 32px; background: #fff; border: 1px solid #e1e8e2; border-radius: 8px; font-size: 17px; color: #47745c; }
+.item-copy { flex: 1; min-width: 0; }
+.item-title, .item-detail { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-title { font-weight: 550; margin-bottom: 4px; }
+.item-detail { color: #72807a; font-size: 11px; }
+.item-action { color: #72807a; }
+#empty { text-align: center; color: #72807a; padding: 30px 10px; }
+#results:empty { height: 200px; }
+#error { color: #ad3939; padding: 10px; background: #fff0ee; border-radius: 8px; }
+footer { display: flex; justify-content: space-between; border-top: 1px solid #e4eae6; padding: 13px 22px; margin-top: 13px; color: #72807a; font-size: 11px; }
+kbd { display: inline-block; padding: 1px 4px; margin-right: 3px; border: 1px solid #d9e1dc; border-radius: 4px; font: inherit; }
+.product-credit { margin: 0; padding: 0 22px 14px; text-align: center; font-size: 11px; color: #65756d; }
+.product-credit a { color: #176047; text-underline-offset: 3px; }
+.product-credit a:focus-visible { outline: 2px solid #16745a; outline-offset: 3px; border-radius: 2px; }
+[hidden] { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  :root { background: #17211d; color: #e5eee9; }
+  .search-box, .item-icon { background: #202e26; border-color: #42584a; }
+  header p, .shortcut, #count, nav, .item-detail, .item-action, footer, #empty { color: #a0b4a7; }
+  .modes button { color: #a0b4a7; }
+  .modes button[aria-pressed="true"], .result[aria-selected="true"] { background: #283f31; color: #d6f0df; border-color: #3e5f4a; }
+  .result:hover { background: #24372b; }
+  footer, kbd { border-color: #374d3e; }
+  #error { background: #452926; color: #ffb4ab; }
+  .product-credit { color: #a0b4a7; }
+  .product-credit a { color: #a7dfbd; }
+}

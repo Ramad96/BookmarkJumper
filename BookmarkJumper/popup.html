@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Jumper</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <header><img class="brand-icon" src="icons/icon-128.png" width="38" height="38" alt=""><div><h1>Bookmark Jumper</h1><p>Your next stop, a few keys away.</p></div><span id="shortcut" class="shortcut"></span></header>
+  <main>
+    <div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search bookmarks and folders…" aria-label="Search bookmarks and folders" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="results" autocomplete="off" autofocus></div>
+    <div class="toolbar"><div class="modes" role="group" aria-label="Search scope"><button id="bar" aria-pressed="true">Bookmarks bar</button><button id="all" aria-pressed="false">All bookmarks</button></div><span id="count" aria-live="polite"></span></div>
+    <nav id="breadcrumbs" aria-label="Folder path"></nav>
+    <div id="results" role="listbox" aria-label="Bookmarks and folders"></div>
+    <p id="empty" hidden>No matches. Try another title, folder, or URL.</p>
+    <p id="error" role="alert" hidden></p>
+  </main>
+  <footer><span><kbd>↑</kbd><kbd>↓</kbd> select</span><span><kbd>↵</kbd> open</span><span><kbd>Alt</kbd><kbd>←</kbd> back</span><span><kbd>Esc</kbd> close</span></footer>
+  <p class="product-credit">BookmarkJumper is a product of <a href="https://amanahdigital.co.uk" target="_blank" rel="noopener noreferrer">AmanahDigital</a>.</p>
+</body>
+</html>
